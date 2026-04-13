@@ -18,11 +18,10 @@ final class Router
         });
     }
 
-    public function dispatch(string $method, string $uri): void
+    public function dispatch(string $httpMethod, string $uri): void
     {
         $uri = rawurldecode(parse_url($uri, PHP_URL_PATH) ?: '/');
-
-        $routeInfo = $this->dispatcher->dispatch($method, $uri);
+        $routeInfo = $this->dispatcher->dispatch($httpMethod, $uri);
 
         switch ($routeInfo[0]) {
             case Dispatcher::NOT_FOUND:
@@ -37,11 +36,25 @@ final class Router
 
             case Dispatcher::FOUND:
                 [, $handler, $vars] = $routeInfo;
+                [$controllerClass, $method] = $handler;
 
-                [$controllerClass, $action] = $handler;
                 $controller = new $controllerClass();
-                $controller->$action(...array_values($vars));
+
+                $vars = $this->castRouteParams($vars);
+
+                $controller->$method(...array_values($vars));
                 return;
         }
+    }
+
+    private function castRouteParams(array $vars): array
+    {
+        foreach ($vars as $key => $value) {
+            if (is_string($value) && ctype_digit($value)) {
+                $vars[$key] = (int) $value;
+            }
+        }
+
+        return $vars;
     }
 }
