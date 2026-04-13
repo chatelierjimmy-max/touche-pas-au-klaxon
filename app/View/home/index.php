@@ -1,34 +1,39 @@
-<h1>Trajets proposés</h1>
+<h1 class="mb-4">Trajets proposés</h1>
 
 <?php if (empty($trips)): ?>
-    <p>Aucun trajet disponible</p>
+    <div class="alert alert-info">Aucun trajet disponible</div>
 <?php else: ?>
 
-<table border="1">
-    <thead>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover bg-white">
+
+        <thead class="table-dark">
         <tr>
             <th>Départ</th>
-            <th>Date départ</th>
-            <th>Heure départ</th>
+            <th>Date</th>
+            <th>Heure</th>
             <th>Destination</th>
-            <th>Date arrivée</th>
-            <th>Heure arrivée</th>
-            <th>Places disponibles</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Places</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+
+        <tbody>
         <?php foreach ($trips as $trip): ?>
-            <tr style="cursor:pointer;">
-                <td><?= htmlspecialchars($trip['departure_agency']) ?></td>
+            <tr onclick="window.location='/trips/<?= $trip['id'] ?>'" style="cursor:pointer;">
+                <td><?= $trip['departure_agency'] ?></td>
                 <td><?= date('d/m/Y', strtotime($trip['departure_datetime'])) ?></td>
                 <td><?= date('H:i', strtotime($trip['departure_datetime'])) ?></td>
-                <td><?= htmlspecialchars($trip['arrival_agency']) ?></td>
+                <td><?= $trip['arrival_agency'] ?></td>
                 <td><?= date('d/m/Y', strtotime($trip['arrival_datetime'])) ?></td>
                 <td><?= date('H:i', strtotime($trip['arrival_datetime'])) ?></td>
-                <td><?= (int) $trip['available_places'] ?></td>
+                <td><?= $trip['available_places'] ?></td>
             </tr>
         <?php endforeach; ?>
-    </tbody>
-</table>
+        </tbody>
+
+    </table>
+</div>
 
 <?php endif; ?>

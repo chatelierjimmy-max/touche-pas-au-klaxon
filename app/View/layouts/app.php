@@ -9,47 +9,59 @@ $flash = Flash::get();
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle ?? 'Application', ENT_QUOTES, 'UTF-8') ?></title>
+    <title><?= htmlspecialchars($pageTitle ?? 'Application') ?></title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h2>Touche pas au klaxon</h2>
 
-        <?php if (!Auth::check()): ?>
-            <a href="/login">Connexion</a>
-        <?php else: ?>
-            <?php if (Auth::isAdmin()): ?>
-                <a href="/">Tableau de bord</a>
-            <?php else: ?>
-                <a href="/trips/create">Créer un trajet</a>
-            <?php endif; ?>
+<body class="bg-light">
 
-            <span>
-                Bonjour <?= htmlspecialchars(Auth::user()['first_name'] . ' ' . Auth::user()['last_name'], ENT_QUOTES, 'UTF-8') ?>
-            </span>
+<div class="container py-4">
 
-            <a href="/logout">Déconnexion</a>
-        <?php endif; ?>
+    <!-- HEADER -->
+    <header class="border rounded-pill px-4 py-3 mb-4 bg-white">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
 
-        <hr>
+            <h4 class="mb-0">
+                <a href="/" class="text-dark text-decoration-none">
+                    Touche pas au klaxon
+                </a>
+            </h4>
+
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <?php if (!Auth::check()): ?>
+                    <a href="/login" class="btn btn-dark">Connexion</a>
+
+                <?php else: ?>
+                    <span>
+                        Bonjour <?= htmlspecialchars(Auth::user()['first_name']) ?>
+                    </span>
+
+                    <a href="/trips/create" class="btn btn-dark">Créer</a>
+                    <a href="/logout" class="btn btn-outline-dark">Déconnexion</a>
+                <?php endif; ?>
+            </div>
+        </div>
     </header>
 
-    <?php if ($flash !== null): ?>
-        <div>
-            <strong><?= htmlspecialchars(strtoupper($flash['type']), ENT_QUOTES, 'UTF-8') ?> :</strong>
-            <?= htmlspecialchars($flash['message'], ENT_QUOTES, 'UTF-8') ?>
+    <!-- FLASH -->
+    <?php if ($flash): ?>
+        <div class="alert <?= $flash['type'] === 'success' ? 'alert-success' : 'alert-danger' ?>">
+            <?= htmlspecialchars($flash['message']) ?>
         </div>
-        <hr>
     <?php endif; ?>
 
+    <!-- CONTENT -->
     <main>
         <?= $content ?>
     </main>
 
-    <footer>
-        <hr>
+    <!-- FOOTER -->
+    <footer class="text-center mt-5">
         <p>© 2024 - CENEF</p>
     </footer>
+
+</div>
+
 </body>
 </html>
