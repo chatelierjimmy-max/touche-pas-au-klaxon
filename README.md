@@ -28,4 +28,4 @@ database/schema.sql
 
 1.  Cloner le projet :
 
-    git clone https://github.com/TON-USERNAME/touche-pas-au-klaxon.git
+    git clone https://github.com/chatelierjimmy-max/touche-pas-au-klaxon.git
