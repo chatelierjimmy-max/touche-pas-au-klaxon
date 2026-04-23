@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
+use App\Middleware\MiddlewareInterface;
 use FastRoute\Dispatcher;
 use function FastRoute\simpleDispatcher;
 
@@ -36,14 +37,35 @@ final class Router
 
             case Dispatcher::FOUND:
                 [, $handler, $vars] = $routeInfo;
-                [$controllerClass, $method] = $handler;
+
+                $middlewares = [];
+                if (isset($handler['middlewares'])) {
+                    $middlewares = $handler['middlewares'];
+                }
+
+                $controllerClass = $handler['controller'];
+                $method = $handler['method'];
+
+                $this->runMiddlewares($middlewares);
 
                 $controller = new $controllerClass();
-
                 $vars = $this->castRouteParams($vars);
 
                 $controller->$method(...array_values($vars));
                 return;
+        }
+    }
+
+    private function runMiddlewares(array $middlewares): void
+    {
+        foreach ($middlewares as $middlewareClass) {
+            $middleware = new $middlewareClass();
+
+            if (!$middleware instanceof MiddlewareInterface) {
+                throw new \RuntimeException("Middleware invalide : {$middlewareClass}");
+            }
+
+            $middleware->handle();
         }
     }
 

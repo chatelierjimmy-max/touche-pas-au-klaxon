@@ -121,4 +121,27 @@ final class TripRepository
         $statement = $this->pdo->prepare($sql);
         $statement->execute(['id' => $id]);
     }
+
+    public function findAllForAdmin(): array
+    {
+        $sql = "
+            SELECT
+                t.id,
+                da.name AS departure_agency,
+                aa.name AS arrival_agency,
+                t.departure_datetime,
+                t.arrival_datetime,
+                t.total_places,
+                t.available_places,
+                u.first_name,
+                u.last_name
+            FROM trips t
+            INNER JOIN agencies da ON da.id = t.departure_agency_id
+            INNER JOIN agencies aa ON aa.id = t.arrival_agency_id
+            INNER JOIN users u ON u.id = t.user_id
+            ORDER BY t.departure_datetime ASC
+        ";
+
+    return $this->pdo->query($sql)->fetchAll();
+}
 }

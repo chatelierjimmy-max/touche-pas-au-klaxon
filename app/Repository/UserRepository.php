@@ -16,6 +16,13 @@ final class UserRepository
         $this->pdo = Database::connection();
     }
 
+    public function findAll(): array
+    {
+        $statement = $this->pdo->query('SELECT * FROM users ORDER BY last_name ASC, first_name ASC');
+
+        return $statement->fetchAll();
+    }
+
     public function findByEmail(string $email): ?array
     {
         $sql = 'SELECT * FROM users WHERE email = :email LIMIT 1';
