@@ -1,6 +1,6 @@
 # Touche pas au klaxon
 
-Projet MVC PHP réalisé dans le cadre de la formation CENEF.
+Projet MVC PHP réalisé dans le cadre de la formation CEF.
 
 ## Fonctionnalités
 
