@@ -22,14 +22,10 @@ Projet MVC PHP réalisé dans le cadre de la formation CEF.
 
 Crée : Châtelier jimmy
 
-    text
-
 database/schema.sql
 
 ## Installation
 
 1.  Cloner le projet :
-
-        bash
 
     git clone https://github.com/TON-USERNAME/touche-pas-au-klaxon.git
