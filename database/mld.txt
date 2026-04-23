@@ -1,0 +1,35 @@
+Voici le MLD textuel du projet.
+
+UTILISATEUR (
+    id_user PK,
+    nom,
+    prenom,
+    telephone,
+    email UQ,
+    mot_de_passe,
+    role
+)
+AGENCE (
+    id_agency PK,
+    nom
+)
+TRAJET (
+    id trajet PK,
+    date_heure_depart,
+    date_heure_arrivee,
+    nb_places_total,
+    nb_places_disponibles,
+    id user FK,
+    id_agency_depart FK,
+    id_agency_arrivee FK
+)
+Contraintes :
+- UTILISATEUR.email est unique
+- AGENCE.nom est unique
+- TRAJET.id_user référence UTILISATEUR.id_user
+- TRAJET.id_agency_depart référence AGENCE.id_agency
+- TRAJET.id_agency_arrivee référence AGENCE.id_agency
+- id_agency_depart ≠ id_agency_arrivee
+- date_heure_arrivee > date_heure_depart
+- nb_places_total > 0
+- 0 ≤ nb_places_disponibles ≤ nb_places_total
