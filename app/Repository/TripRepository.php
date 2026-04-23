@@ -7,15 +7,41 @@ namespace App\Repository;
 use App\Core\Database;
 use PDO;
 
+/**
+ * Gère les opérations liées aux trajets en base de données.
+ *
+ * Cette classe permet :
+ * - de récupérer les trajets disponibles
+ * - de rechercher un trajet par ID
+ * - de créer, modifier et supprimer un trajet
+ * - de récupérer tous les trajets pour l'administration
+ */
 final class TripRepository
 {
+    /**
+     * Instance de connexion PDO.
+     *
+     * @var PDO
+     */
     private PDO $pdo;
 
+    /**
+     * Initialise le repository avec la connexion à la base de données.
+     */
     public function __construct()
     {
         $this->pdo = Database::connection();
     }
 
+    /**
+     * Récupère tous les trajets disponibles à venir.
+     *
+     * Conditions :
+     * - nombre de places disponibles > 0
+     * - date de départ dans le futur
+     *
+     * @return array<int, array<string, mixed>> Liste des trajets.
+     */
     public function findAvailableUpcomingTrips(): array
     {
         $sql = "
@@ -38,6 +64,16 @@ final class TripRepository
         return $this->pdo->query($sql)->fetchAll();
     }
 
+    /**
+     * Recherche un trajet par son identifiant.
+     *
+     * Inclut les informations :
+     * - agences de départ et d’arrivée
+     * - utilisateur ayant créé le trajet
+     *
+     * @param int $id Identifiant du trajet.
+     * @return array<string, mixed>|null Trajet trouvé ou null.
+     */
     public function findById(int $id): ?array
     {
         $sql = "
@@ -63,6 +99,12 @@ final class TripRepository
         return $trip ?: null;
     }
 
+    /**
+     * Crée un nouveau trajet en base de données.
+     *
+     * @param array<string, mixed> $data Données du trajet.
+     * @return void
+     */
     public function create(array $data): void
     {
         $sql = "
@@ -89,6 +131,13 @@ final class TripRepository
         $statement->execute($data);
     }
 
+    /**
+     * Met à jour un trajet existant.
+     *
+     * @param int $id Identifiant du trajet à modifier.
+     * @param array<string, mixed> $data Nouvelles données du trajet.
+     * @return void
+     */
     public function update(int $id, array $data): void
     {
         $sql = "
@@ -115,6 +164,12 @@ final class TripRepository
         ]);
     }
 
+    /**
+     * Supprime un trajet en base de données.
+     *
+     * @param int $id Identifiant du trajet à supprimer.
+     * @return void
+     */
     public function delete(int $id): void
     {
         $sql = "DELETE FROM trips WHERE id = :id";
@@ -122,6 +177,15 @@ final class TripRepository
         $statement->execute(['id' => $id]);
     }
 
+    /**
+     * Récupère tous les trajets pour l'administration.
+     *
+     * Inclut les informations :
+     * - agences de départ et d’arrivée
+     * - utilisateur ayant créé le trajet
+     *
+     * @return array<int, array<string, mixed>> Liste complète des trajets.
+     */
     public function findAllForAdmin(): array
     {
         $sql = "
@@ -142,6 +206,6 @@ final class TripRepository
             ORDER BY t.departure_datetime ASC
         ";
 
-    return $this->pdo->query($sql)->fetchAll();
-}
+        return $this->pdo->query($sql)->fetchAll();
+    }
 }
