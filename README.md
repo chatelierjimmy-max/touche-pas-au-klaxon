@@ -63,6 +63,8 @@ Gestion des rôles (USER / ADMIN)
 Protection des routes via middleware
 Vérification des droits (propriétaire d’un trajet)
 
+Projet MVC PHP réalisé dans le cadre de la formation CEF.
+
 ## Fonctionnalités
 
 - Authentification (login / logout)
@@ -124,6 +126,8 @@ Voir : database/mld.txt
 Script SQL
 
 Voir : database/schema.sql
+
+database/schema.sql
 
 ## Installation
 
