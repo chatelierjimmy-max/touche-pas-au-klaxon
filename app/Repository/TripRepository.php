@@ -8,6 +8,9 @@ use App\Core\Database;
 use PDO;
 
 /**
+ * Repository gérant les opérations sur les trajets.
+ */
+/**
  * Gère les opérations liées aux trajets en base de données.
  *
  * Cette classe permet :

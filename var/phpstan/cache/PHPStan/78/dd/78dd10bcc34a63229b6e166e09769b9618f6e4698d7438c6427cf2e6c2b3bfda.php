@@ -2,7 +2,7 @@
 
 // odsl-C:\Users\elcor\Desktop\Cas pratique et devoirs CEF\Devoir MVC en PHP\touche-pas-au-klaxon\app\Repository\TripRepository.php-PHPStan\BetterReflection\Reflection\ReflectionClass-App\Repository\TripRepository
 return \PHPStan\Cache\CacheItem::__set_state(array(
-   'variableKey' => 'v2-6.70.0.0-8.2.29-1b2d06984fb71764f8604e66cb269ba7c34150554c9db9c7c9d30b4d2444af99',
+   'variableKey' => 'v2-6.70.0.0-8.2.29-b269b27eec3a952915628eced1d383a1b26868e9b84a0892dcf8b1f753e2a91c',
    'data' => 
   array (
     'locatedSource' => 
@@ -34,8 +34,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     'attributes' => 
     array (
     ),
-    'startLine' => 19,
-    'endLine' => 239,
+    'startLine' => 22,
+    'endLine' => 242,
     'startColumn' => 1,
     'endColumn' => 1,
     'parentClassName' => NULL,
@@ -74,8 +74,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         'attributes' => 
         array (
         ),
-        'startLine' => 26,
-        'endLine' => 26,
+        'startLine' => 29,
+        'endLine' => 29,
         'startColumn' => 5,
         'endColumn' => 21,
         'isPromoted' => false,
@@ -102,8 +102,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         'docComment' => '/**
  * Initialise le repository avec la connexion à la base de données.
  */',
-        'startLine' => 31,
-        'endLine' => 34,
+        'startLine' => 34,
+        'endLine' => 37,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -145,8 +145,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  *
  * @return array<int, array<string, mixed>> Liste des trajets.
  */',
-        'startLine' => 45,
-        'endLine' => 70,
+        'startLine' => 48,
+        'endLine' => 73,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -184,8 +184,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 82,
-            'endLine' => 82,
+            'startLine' => 85,
+            'endLine' => 85,
             'startColumn' => 30,
             'endColumn' => 36,
             'parameterIndex' => 0,
@@ -234,8 +234,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  * @param int $id Identifiant du trajet.
  * @return array<string, mixed>|null Trajet trouvé ou null.
  */',
-        'startLine' => 82,
-        'endLine' => 105,
+        'startLine' => 85,
+        'endLine' => 108,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -273,8 +273,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 113,
-            'endLine' => 113,
+            'startLine' => 116,
+            'endLine' => 116,
             'startColumn' => 28,
             'endColumn' => 38,
             'parameterIndex' => 0,
@@ -300,8 +300,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  * @param array<string, mixed> $data Données du trajet.
  * @return void
  */',
-        'startLine' => 113,
-        'endLine' => 137,
+        'startLine' => 116,
+        'endLine' => 140,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -339,8 +339,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 146,
-            'endLine' => 146,
+            'startLine' => 149,
+            'endLine' => 149,
             'startColumn' => 28,
             'endColumn' => 34,
             'parameterIndex' => 0,
@@ -365,8 +365,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 146,
-            'endLine' => 146,
+            'startLine' => 149,
+            'endLine' => 149,
             'startColumn' => 37,
             'endColumn' => 47,
             'parameterIndex' => 1,
@@ -393,8 +393,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  * @param array<string, mixed> $data Nouvelles données du trajet.
  * @return void
  */',
-        'startLine' => 146,
-        'endLine' => 170,
+        'startLine' => 149,
+        'endLine' => 173,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -432,8 +432,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 180,
-            'endLine' => 180,
+            'startLine' => 183,
+            'endLine' => 183,
             'startColumn' => 33,
             'endColumn' => 39,
             'parameterIndex' => 0,
@@ -461,8 +461,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  * @param int $id Identifiant du trajet.
  * @return bool True si une place a été réservée, false sinon.
  */',
-        'startLine' => 180,
-        'endLine' => 193,
+        'startLine' => 183,
+        'endLine' => 196,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -500,8 +500,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
             'attributes' => 
             array (
             ),
-            'startLine' => 201,
-            'endLine' => 201,
+            'startLine' => 204,
+            'endLine' => 204,
             'startColumn' => 28,
             'endColumn' => 34,
             'parameterIndex' => 0,
@@ -527,8 +527,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  * @param int $id Identifiant du trajet à supprimer.
  * @return void
  */',
-        'startLine' => 201,
-        'endLine' => 206,
+        'startLine' => 204,
+        'endLine' => 209,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
@@ -570,8 +570,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
  *
  * @return array<int, array<string, mixed>> Liste complète des trajets.
  */',
-        'startLine' => 217,
-        'endLine' => 238,
+        'startLine' => 220,
+        'endLine' => 241,
         'startColumn' => 5,
         'endColumn' => 5,
         'couldThrow' => false,
