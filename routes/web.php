@@ -134,3 +134,9 @@ $routeCollector->addRoute('POST', '/admin/trips/{id:\d+}/delete', [
     'method' => 'delete',
     'middlewares' => [AdminMiddleware::class],
 ]);
+
+$routeCollector->addRoute('POST', '/trips/{id:\d+}/reserve', [
+    'controller' => TripController::class,
+    'method' => 'reserve',
+    'middlewares' => [AuthMiddleware::class],
+]);

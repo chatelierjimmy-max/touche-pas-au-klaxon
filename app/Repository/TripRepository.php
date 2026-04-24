@@ -52,12 +52,17 @@ final class TripRepository
                 t.departure_datetime,
                 t.arrival_datetime,
                 t.total_places,
-                t.available_places
+                t.available_places,
+                u.first_name,
+                u.last_name,
+                u.phone,
+                u.email
             FROM trips t
             INNER JOIN agencies da ON da.id = t.departure_agency_id
             INNER JOIN agencies aa ON aa.id = t.arrival_agency_id
+            INNER JOIN users u ON u.id = t.user_id
             WHERE t.available_places > 0
-              AND t.departure_datetime > NOW()
+            AND t.departure_datetime > NOW()
             ORDER BY t.departure_datetime ASC
         ";
 
@@ -162,6 +167,29 @@ final class TripRepository
             'total_places' => $data['total_places'],
             'available_places' => $data['available_places'],
         ]);
+    }
+    
+    /**
+    * Réserve une place sur un trajet.
+    *
+    * La réservation est possible uniquement s'il reste au moins une place disponible.
+    *
+    * @param int $id Identifiant du trajet.
+    * @return bool True si une place a été réservée, false sinon.
+    */
+    public function reserveSeat(int $id): bool
+    {
+        $sql = "
+            UPDATE trips
+            SET available_places = available_places - 1
+            WHERE id = :id
+            AND available_places > 0
+        ";
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['id' => $id]);
+
+    return $statement->rowCount() > 0;
     }
 
     /**

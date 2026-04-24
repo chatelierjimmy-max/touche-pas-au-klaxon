@@ -255,6 +255,27 @@ final class TripController extends Controller
         Flash::set('success', 'Le trajet a bien été modifié.');
         $this->redirect('/');
     }
+    
+    /**
+    * Réserve une place sur un trajet.
+    *
+    * @param int $id Identifiant du trajet.
+    * @return never
+    */
+    public function reserve(int $id): never
+    {
+    $tripRepository = new TripRepository();
+
+    $reserved = $tripRepository->reserveSeat($id);
+
+    if (!$reserved) {
+        Flash::set('error', 'Aucune place disponible pour ce trajet.');
+        $this->redirect('/');
+    }
+
+    Flash::set('success', 'Votre place a bien été réservée.');
+    $this->redirect('/');
+    }
 
     /**
      * Supprime un trajet existant.
