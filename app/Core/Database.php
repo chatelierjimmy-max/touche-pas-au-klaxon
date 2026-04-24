@@ -53,4 +53,16 @@ final class Database
 
         return self::$instance;
     }
+
+    /**
+     * Réinitialise l'instance PDO.
+     *
+     * Utile pour les tests automatisés.
+     *
+     * @return void
+     */
+    public static function reset(): void
+    {
+        self::$instance = null;
+    }
 }

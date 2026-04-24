@@ -196,6 +196,44 @@ public/
 routes/
 vendor/
 
+## Tests
+
+Le projet intègre des tests PHPUnit couvrant les opérations d’écriture en base de données :
+
+- création d’agence
+- modification d’agence
+- suppression d’agence
+- création de trajet
+- modification de trajet
+- suppression de trajet
+
+Lancement :
+
+vendor\bin\phpunit
+
+## Point important pour ton rendu
+
+Des tests PHPUnit ont été ajoutés pour couvrir les opérations d’écriture en base de données, conformément à la consigne. Une base de test dédiée est utilisée afin de ne pas altérer les données principales.
+
+Tests PHPUnit
+
+Le projet intègre des tests PHPUnit couvrant les opérations d’écriture en base de données.
+
+Tests couverts :
+
+- Création d’une agence
+- Modification d’une agence
+- Suppression d’une agence
+- Création d’un trajet
+- Modification d’un trajet
+- Suppression d’un trajet
+
+Les tests utilisent une base dédiée :
+
+text:
+
+touche_pas_au_klaxon_test
+
 ## Améliorations possibles
 
 Système de réservation de places
