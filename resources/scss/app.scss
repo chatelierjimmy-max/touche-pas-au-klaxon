@@ -1,9 +1,10 @@
 // Import variables
-@use "./variables";
+@use "variables" as *;
 
 // Global
 body {
   background-color: #f1f8fc;
+  color: #384050;
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -48,6 +49,15 @@ table td {
   border-radius: 10px;
 }
 
+.btn-primary {
+  background-color: #0074c7;
+  border: none;
+
+  &:hover {
+    background-color: #00497c;
+  }
+}
+
 // FORMULAIRES
 form {
   background: white;
@@ -58,6 +68,14 @@ form {
 // ALERTS
 .alert {
   border-radius: 10px;
+}
+
+.alert-success {
+  background-color: #82b864;
+}
+
+.alert-danger {
+  background-color: #cd2c2e;
 }
 
 // FOOTER
