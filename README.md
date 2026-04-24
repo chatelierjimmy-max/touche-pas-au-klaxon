@@ -216,11 +216,16 @@ Core, Controller, Repository, Middleware, routes et tests.
 
 ## Améliorations possibles
 
+- Ajout d'une démonstration GitHub avec issues et pull requests.
 - Système de réservation avancé avec table reservations
 - Pagination des trajets
 - Recherche / filtres
 - Interface utilisateur plus avancée
 - API REST
+
+## Gestion de projet
+
+Des problèmes et demandes de fusion ont été utilisés pour organiser le développement.
 
 ## Contexte
 
