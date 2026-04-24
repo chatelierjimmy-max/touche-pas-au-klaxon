@@ -16,6 +16,11 @@ final class Flash
         ]);
     }
 
+    /**
+    * Récupère le message flash courant.
+    *
+    * @return array{type: string, message: string}|null
+    */
     public static function get(): ?array
     {
         $flash = Session::get(self::KEY);

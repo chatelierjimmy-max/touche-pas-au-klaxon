@@ -56,23 +56,31 @@ final class Router
         }
     }
 
+    /**
+    * Exécute les middlewares liés à une route.
+    *
+     * @param array<int, class-string<\App\Middleware\MiddlewareInterface>> $middlewares
+     * @return void
+    */
     private function runMiddlewares(array $middlewares): void
     {
         foreach ($middlewares as $middlewareClass) {
             $middleware = new $middlewareClass();
 
-            if (!$middleware instanceof MiddlewareInterface) {
-                throw new \RuntimeException("Middleware invalide : {$middlewareClass}");
-            }
-
             $middleware->handle();
         }
     }
 
+    /**
+    * Convertit les paramètres numériques de route en entiers.
+     *
+    * @param array<string, string> $vars
+    * @return array<string, int|string>
+    */
     private function castRouteParams(array $vars): array
     {
         foreach ($vars as $key => $value) {
-            if (is_string($value) && ctype_digit($value)) {
+            if (ctype_digit($value)) {
                 $vars[$key] = (int) $value;
             }
         }

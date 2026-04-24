@@ -12,6 +12,20 @@ final class Database
 {
     private static ?PDO $instance = null;
 
+    /**
+    * Initialise la connexion PDO.
+    *
+    * @param array{
+    *     host: string,
+    *     port: int,
+    *     database: string,
+    *     username: string,
+    *     password: string,
+    *     charset: string
+    * } $config
+    * @return void
+    */
+    
     public static function init(array $config): void
     {
         if (self::$instance !== null) {

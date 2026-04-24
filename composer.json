@@ -9,7 +9,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^10.5",
-    "phpstan/phpstan": "^1.11"
+    "phpstan/phpstan": "^2.1"
   },
   "autoload": {
     "psr-4": {
@@ -22,6 +22,7 @@
   "scripts": {
     "test": "phpunit --configuration tests/phpunit.xml",
     "stan": "phpstan analyse",
-    "serve": "php -S localhost:8000 -t public"
+    "serve": "php -S localhost:8000 -t public",
+    "phpstan": "phpstan analyse"
   }
 }
