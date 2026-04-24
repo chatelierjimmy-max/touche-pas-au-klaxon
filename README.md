@@ -223,6 +223,10 @@ Core, Controller, Repository, Middleware, routes et tests.
 - Interface utilisateur plus avancée
 - API REST
 
+## Gestion de projet
+
+Des problèmes et demandes de fusion ont été utilisés pour organiser le développement.
+
 ## Contexte
 
 Projet réalisé dans le cadre de la formation CEF
