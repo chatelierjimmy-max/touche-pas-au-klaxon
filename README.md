@@ -216,6 +216,7 @@ Core, Controller, Repository, Middleware, routes et tests.
 
 ## Améliorations possibles
 
+- Ajout d'une démonstration GitHub avec issues et pull requests.
 - Système de réservation avancé avec table reservations
 - Pagination des trajets
 - Recherche / filtres
