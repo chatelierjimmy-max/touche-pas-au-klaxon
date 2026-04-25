@@ -6,3 +6,6 @@
 /storage/logs/*
 /storage/cache/*
 /composer.phar
+/var/phpstan/
+*.docx
+*.pdf
